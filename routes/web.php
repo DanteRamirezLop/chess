@@ -6,6 +6,7 @@ use App\Http\Controllers\ChessRulesController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SubscribedOnChannelController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CommandControllers;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('listen',[CommandControllers::class,'listen']);
 
 Route::prefix('/api')->group(function () {
     Route::get('/time', fn() => response()->json(['time' => date('U')]));
